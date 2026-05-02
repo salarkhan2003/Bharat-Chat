@@ -1,0 +1,13 @@
+{
+  "name": "BharatChat",
+  "description": "A high-performance, glassmorphism messenger with end-to-end encryption, real-time presence, and AI-driven smart replies.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "real-time messaging",
+    "AI summarization",
+    "end-to-end encryption"
+  ]
+}

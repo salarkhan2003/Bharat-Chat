@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 3rem;
+}
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.06);
+  
+  --bg-primary: #000000;
+  --bg-secondary: #05070a;
+  --bg-tertiary: #121212;
+  --bg-quaternary: #1c1c1e;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8; /* slate-400 */
+  --border-primary: rgba(255, 255, 255, 0.05);
+  --accent-primary: #ffffff;
+  --accent-secondary: #000000;
+}
+
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-quaternary: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-primary: rgba(0, 0, 0, 0.05);
+  --accent-primary: #0f172a;
+  --accent-secondary: #ffffff;
+  --glass-bg: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-hover: rgba(0, 0, 0, 0.06);
+}
+
+.dark {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+body {
+  @apply antialiased font-sans overflow-hidden transition-colors duration-300;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  height: 100dvh;
+}
+
+/* Enhanced Glassmorphism */
+.glass {
+  @apply backdrop-blur-2xl transition-all duration-300;
+  border: 1px solid var(--border-primary);
+  background: var(--glass-bg);
+}
+
+/* Liquid Clay UI - High Contrast & Soft */
+.liquid-clay-card {
+  @apply rounded-[2.5rem] transition-all duration-300;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.liquid-clay-inner {
+  @apply rounded-3xl transition-all duration-300;
+  background-color: var(--bg-quaternary);
+  border: 1px solid var(--border-primary);
+}
+
+.liquid-clay-button {
+  @apply relative overflow-hidden active:scale-90 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)];
+  background: var(--accent-primary);
+  color: var(--accent-secondary);
+}
+
+.chat-bubble-me {
+  @apply rounded-[1.5rem] rounded-tr-none px-5 py-3 shadow-sm transition-all duration-300;
+  background-color: var(--accent-primary);
+  color: var(--accent-secondary);
+  font-weight: 500;
+}
+
+.chat-bubble-them {
+  @apply rounded-[1.5rem] rounded-tl-none px-5 py-3 border transition-all duration-300;
+  background-color: var(--bg-quaternary);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+/* Custom Scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.search-bar {
+  @apply w-full border-none rounded-2xl px-12 py-3 transition-all duration-300;
+  background-color: var(--bg-quaternary);
+  color: var(--text-primary);
+}
+
+/* iOS-style slide animations */
+.slide-in {
+  animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.markdown-body {
+  @apply prose prose-invert prose-sm max-w-none;
+}
